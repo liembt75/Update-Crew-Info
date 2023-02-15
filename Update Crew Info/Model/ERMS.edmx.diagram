@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fab89f3027c24b5c8ee833fcb9ae7617" Name="Diagram1" ZoomLevel="50">
+        <EntityTypeShape EntityType="ERMSModel.HR_GBLuyke" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Party" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERMSModel.HR_ThanNhan" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERMSModel.Sys_Account" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERMSModel.CR_NoneFlight" Width="1.5" PointX="12.625" PointY="1.125" />
+        <EntityTypeShape EntityType="ERMSModel.CR_NoneFlight_Category" Width="1.5" PointX="10.375" PointY="2.625" />
+        <AssociationConnector Association="ERMSModel.FK_CR_NoneFlight_CR_NoneFlight_Category" />
+        <EntityTypeShape EntityType="ERMSModel.CR_Flight_CoviComRoute" Width="1.5" PointX="10.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ERMSModel.CR_FlightInfo" Width="1.5" PointX="12.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ERMSModel.CR_TimeZone" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ERMSModel.TMP_GSHH" Width="1.5" PointX="15.375" PointY="5.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Dep_Cat" Width="1.5" PointX="15.375" PointY="10.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Dep_Log" Width="1.5" PointX="15.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_NhanThan" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ERMSModel.TRN_HisLearning" Width="1.5" PointX="7.375" PointY="4.75" />
+        <EntityTypeShape EntityType="ERMSModel.PView_ktkl" Width="1.5" PointX="7.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Contract" Width="1.5" PointX="7.375" PointY="8.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Contract_Termination" Width="1.5" PointX="15.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Contract_Category" Width="1.5" PointX="7.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_Mail" Width="1.5" PointX="9.375" PointY="13.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_MailOpsLog" Width="1.5" PointX="17.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_GroupMail" Width="1.5" PointX="0.75" PointY="17.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_MailinGroup" Width="1.5" PointX="17.75" PointY="5.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,539 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DTV_CabinetModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_TrainingClass">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_TrainingTypeID" Type="smallint" Nullable="false" />
+          <Property Name="c_Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_FrDate" Type="date" Nullable="false" />
+          <Property Name="c_ToDate" Type="date" Nullable="false" />
+          <Property Name="c_TimeDefault" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_FrHours" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_ToHours" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_TestDate" Type="date" />
+          <Property Name="c_NumOfDay" Type="tinyint" Nullable="false" />
+          <Property Name="c_NumOfStudent" Type="smallint" Nullable="false" />
+          <Property Name="c_NumOfDocs" Type="tinyint" Nullable="false" />
+          <Property Name="c_MaxStudents" Type="smallint" Nullable="false" />
+          <Property Name="c_ExcludingDays" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_ClassNature" Type="tinyint" Nullable="false" />
+          <Property Name="c_DaysInWeek" Type="tinyint" Nullable="false" />
+          <Property Name="c_ConditionMax" Type="tinyint" Nullable="false" />
+          <Property Name="c_ConditionTitle" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_FileCode" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_Note" Type="nvarchar" MaxLength="1000" Nullable="false" />
+          <Property Name="c_DocQualified" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_WarningCount" Type="tinyint" Nullable="false" />
+          <Property Name="c_LogCount" Type="tinyint" Nullable="false" />
+          <Property Name="c_TeacherCount" Type="tinyint" Nullable="false" />
+          <Property Name="c_UpdatedAt" Type="datetime" Nullable="false" />
+          <Property Name="c_UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="c_ResultCount" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingClassStudent">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_ClassID" Type="int" Nullable="false" />
+          <Property Name="c_ClassDate" Type="date" Nullable="false" />
+          <Property Name="c_TrainingTypeID" Type="smallint" Nullable="false" />
+          <Property Name="c_TrainingTypeLinkID" Type="smallint" Nullable="false" />
+          <Property Name="c_CrewID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_FinalResult" Type="tinyint" Nullable="false" />
+          <Property Name="c_SchedulingID" Type="int" Nullable="false" />
+          <Property Name="c_DocQualified" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_ExpiredDate" Type="date" />
+          <Property Name="c_ExpiredBreak" Type="date" />
+          <Property Name="c_Note" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_WarningMessage" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="c_ClassNature" Type="tinyint" Nullable="false" />
+          <Property Name="c_CreatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="c_CreatedAt" Type="datetime" />
+          <Property Name="c_WarningID" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_WarningDisabledIDs" Type="varchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingTypeCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_GroupID" Type="int" Nullable="false" />
+          <Property Name="c_ValidFr" Type="date" Nullable="false" />
+          <Property Name="c_ValidTo" Type="date" />
+          <Property Name="c_BreakCodeID" Type="smallint" Nullable="false" />
+          <Property Name="c_ExpireMonths" Type="tinyint" Nullable="false" />
+          <Property Name="c_EstimateStudents" Type="smallint" Nullable="false" />
+          <Property Name="c_Location" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_WarningMonths" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_StatisticEnable" Type="bit" Nullable="false" />
+          <Property Name="c_SortOrder" Type="smallint" Nullable="false" />
+          <Property Name="c_ExternalCode" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="c_TimesDefault" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_WarningDisabled" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingTypeProgramCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_TrainingTypeID" Type="smallint" Nullable="false" />
+          <Property Name="c_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_Code" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_DayCount" Type="tinyint" Nullable="false" />
+          <Property Name="c_TeacherAbilities" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_TeacherCount" Type="tinyint" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="c_IsDeactivated" Type="bit" Nullable="false" />
+          <Property Name="c_Note" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_UpdatedAt" Type="datetime" Nullable="false" />
+          <Property Name="c_UpdatedBy" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingTypeSubjectCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_TrainingTypeID" Type="smallint" Nullable="false" />
+          <Property Name="c_Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_ValidFr" Type="date" Nullable="false" />
+          <Property Name="c_SortOrder" Type="tinyint" Nullable="false" />
+          <Property Name="c_ResultType" Type="tinyint" Nullable="false" />
+          <Property Name="c_IsDeactivated" Type="bit" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="temp_Column" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <Function Name="sp_TrainingStudentStatistic_L" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FilterTrainingID1" Type="smallint" Mode="In" />
+          <Parameter Name="FilterTrainingID2" Type="smallint" Mode="In" />
+          <Parameter Name="FilterTrainingID3" Type="smallint" Mode="In" />
+          <Parameter Name="Filter1DataType" Type="tinyint" Mode="In" />
+          <Parameter Name="Filter2DataType" Type="tinyint" Mode="In" />
+          <Parameter Name="Filter3DataType" Type="tinyint" Mode="In" />
+          <Parameter Name="Filter1FinalResult" Type="tinyint" Mode="In" />
+          <Parameter Name="Filter2FinalResult" Type="tinyint" Mode="In" />
+          <Parameter Name="Filter3FinalResult" Type="tinyint" Mode="In" />
+          <Parameter Name="ClassIDs" Type="varchar" Mode="In" />
+          <Parameter Name="CrewID" Type="varchar" Mode="In" />
+          <Parameter Name="CrewNameNU" Type="varchar" Mode="In" />
+          <Parameter Name="ToDate" Type="date" Mode="In" />
+          <Parameter Name="EmployerIDs" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerIDsEx" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerTypes" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerTypesEx" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerStatusCodes" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerStatusCodesEx" Type="varchar" Mode="In" />
+          <Parameter Name="EmployerStatusCodesIsEmpty" Type="bit" Mode="In" />
+          <Parameter Name="Bases" Type="varchar" Mode="In" />
+          <Parameter Name="BasesEx" Type="varchar" Mode="In" />
+          <Parameter Name="CrewTitles" Type="varchar" Mode="In" />
+          <Parameter Name="CrewTitlesEx" Type="varchar" Mode="In" />
+          <Parameter Name="FlyCapability" Type="varchar" Mode="In" />
+          <Parameter Name="FlyCapabilityEx" Type="varchar" Mode="In" />
+          <Parameter Name="Teacher" Type="bit" Mode="In" />
+          <Parameter Name="Gender" Type="tinyint" Mode="In" />
+        </Function>
+        <EntityContainer Name="DTV_CabinetModel1StoreContainer">
+          <EntitySet Name="t_TrainingClass" EntityType="Self.t_TrainingClass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_TrainingClassStudent" EntityType="Self.t_TrainingClassStudent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_TrainingTypeCategory" EntityType="Self.t_TrainingTypeCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_TrainingTypeProgramCategory" EntityType="Self.t_TrainingTypeProgramCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_TrainingTypeSubjectCategory" EntityType="Self.t_TrainingTypeSubjectCategory" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DTV_CabinetModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DTV_CabinetEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="t_TrainingTypeCategory" EntityType="DTV_CabinetModel1.t_TrainingTypeCategory" />
+          <EntitySet Name="t_TrainingClass" EntityType="DTV_CabinetModel1.t_TrainingClass" />
+          <EntitySet Name="t_TrainingTypeProgramCategory" EntityType="DTV_CabinetModel1.t_TrainingTypeProgramCategory" />
+          <EntitySet Name="t_TrainingTypeSubjectCategory" EntityType="DTV_CabinetModel1.t_TrainingTypeSubjectCategory" />
+          <FunctionImport Name="sp_TrainingStudentStatistic_L" ReturnType="Collection(DTV_CabinetModel1.sp_TrainingStudentStatistic_L_Result)">
+            <Parameter Name="FilterTrainingID1" Mode="In" Type="Int16" />
+            <Parameter Name="FilterTrainingID2" Mode="In" Type="Int16" />
+            <Parameter Name="FilterTrainingID3" Mode="In" Type="Int16" />
+            <Parameter Name="Filter1DataType" Mode="In" Type="Byte" />
+            <Parameter Name="Filter2DataType" Mode="In" Type="Byte" />
+            <Parameter Name="Filter3DataType" Mode="In" Type="Byte" />
+            <Parameter Name="Filter1FinalResult" Mode="In" Type="Byte" />
+            <Parameter Name="Filter2FinalResult" Mode="In" Type="Byte" />
+            <Parameter Name="Filter3FinalResult" Mode="In" Type="Byte" />
+            <Parameter Name="ClassIDs" Mode="In" Type="String" />
+            <Parameter Name="CrewID" Mode="In" Type="String" />
+            <Parameter Name="CrewNameNU" Mode="In" Type="String" />
+            <Parameter Name="ToDate" Mode="In" Type="DateTime" />
+            <Parameter Name="EmployerIDs" Mode="In" Type="String" />
+            <Parameter Name="EmployerIDsEx" Mode="In" Type="String" />
+            <Parameter Name="EmployerTypes" Mode="In" Type="String" />
+            <Parameter Name="EmployerTypesEx" Mode="In" Type="String" />
+            <Parameter Name="EmployerStatusCodes" Mode="In" Type="String" />
+            <Parameter Name="EmployerStatusCodesEx" Mode="In" Type="String" />
+            <Parameter Name="EmployerStatusCodesIsEmpty" Mode="In" Type="Boolean" />
+            <Parameter Name="Bases" Mode="In" Type="String" />
+            <Parameter Name="BasesEx" Mode="In" Type="String" />
+            <Parameter Name="CrewTitles" Mode="In" Type="String" />
+            <Parameter Name="CrewTitlesEx" Mode="In" Type="String" />
+            <Parameter Name="FlyCapability" Mode="In" Type="String" />
+            <Parameter Name="FlyCapabilityEx" Mode="In" Type="String" />
+            <Parameter Name="Teacher" Mode="In" Type="Boolean" />
+            <Parameter Name="Gender" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <EntitySet Name="t_TrainingClassStudent" EntityType="DTV_CabinetModel1.t_TrainingClassStudent" />
+        </EntityContainer>
+        <EntityType Name="t_TrainingTypeCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="c_GroupID" Type="Int32" Nullable="false" />
+          <Property Name="c_ValidFr" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="c_ValidTo" Type="DateTime" Precision="0" />
+          <Property Name="c_BreakCodeID" Type="Int16" Nullable="false" />
+          <Property Name="c_ExpireMonths" Type="Byte" Nullable="false" />
+          <Property Name="c_EstimateStudents" Type="Int16" Nullable="false" />
+          <Property Name="c_Location" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="c_WarningMonths" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="c_StatisticEnable" Type="Boolean" Nullable="false" />
+          <Property Name="c_SortOrder" Type="Int16" Nullable="false" />
+          <Property Name="c_ExternalCode" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="c_TimesDefault" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_WarningDisabled" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingClass">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_TrainingTypeID" Type="Int16" Nullable="false" />
+          <Property Name="c_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="c_FrDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="c_ToDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="c_TimeDefault" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_FrHours" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="c_ToHours" Type="Decimal" Nullable="false" Precision="8" Scale="2" />
+          <Property Name="c_TestDate" Type="DateTime" Precision="0" />
+          <Property Name="c_NumOfDay" Type="Byte" Nullable="false" />
+          <Property Name="c_NumOfStudent" Type="Int16" Nullable="false" />
+          <Property Name="c_NumOfDocs" Type="Byte" Nullable="false" />
+          <Property Name="c_MaxStudents" Type="Int16" Nullable="false" />
+          <Property Name="c_ExcludingDays" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="c_ClassNature" Type="Byte" Nullable="false" />
+          <Property Name="c_DaysInWeek" Type="Byte" Nullable="false" />
+          <Property Name="c_ConditionMax" Type="Byte" Nullable="false" />
+          <Property Name="c_ConditionTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="c_FileCode" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="c_Note" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="c_DocQualified" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="c_WarningCount" Type="Byte" Nullable="false" />
+          <Property Name="c_LogCount" Type="Byte" Nullable="false" />
+          <Property Name="c_TeacherCount" Type="Byte" Nullable="false" />
+          <Property Name="c_UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="c_ResultCount" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingTypeProgramCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_TrainingTypeID" Type="Int16" Nullable="false" />
+          <Property Name="c_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_Code" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="c_DayCount" Type="Byte" Nullable="false" />
+          <Property Name="c_TeacherAbilities" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="c_TeacherCount" Type="Byte" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="c_IsDeactivated" Type="Boolean" Nullable="false" />
+          <Property Name="c_Note" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_UpdatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_UpdatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_TrainingTypeSubjectCategory">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_TrainingTypeID" Type="Int16" Nullable="false" />
+          <Property Name="c_Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_ValidFr" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="c_SortOrder" Type="Byte" Nullable="false" />
+          <Property Name="c_ResultType" Type="Byte" Nullable="false" />
+          <Property Name="c_IsDeactivated" Type="Boolean" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="temp_Column" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="sp_TrainingStudentStatistic_L_Result">
+          <Property Type="String" Name="c_CrewID" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="c_CrewName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="c_DeptName" Nullable="false" MaxLength="100" />
+          <Property Type="Byte" Name="c_EmployerID" Nullable="false" />
+          <Property Type="String" Name="c_EmployerType" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="c_Base" Nullable="false" MaxLength="3" />
+          <Property Type="String" Name="c_LastMiddleName" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="c_LastOpsDate" Nullable="true" />
+          <Property Type="String" Name="c_LastOpsCode" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="c_LastOpsText" Nullable="false" MaxLength="200" />
+          <Property Type="DateTime" Name="c_LastOpsFrDate" Nullable="true" />
+          <Property Type="DateTime" Name="c_LastOpsToDate" Nullable="true" />
+          <Property Type="String" Name="c_CrewTitle" Nullable="false" MaxLength="10" />
+          <Property Type="Byte" Name="c_Gender" Nullable="false" />
+          <Property Type="String" Name="c_Languages" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="c_TeachingCodes" Nullable="false" MaxLength="100" />
+          <Property Type="DateTime" Name="c_CrewTitleDate" Nullable="true" />
+          <Property Type="DateTime" Name="c_EmployeeFromDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="c_LangEType" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="c_LangEPoint" Nullable="true" MaxLength="10" />
+          <Property Type="DateTime" Name="c_LangEDate" Nullable="true" />
+          <Property Type="String" Name="c_FirstCourse" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="c_FlyCapability" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="c_FlyCapabilityFull" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="c_ClassID" Nullable="false" />
+          <Property Type="String" Name="c_ClassName" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="c_ClassStudentID" Nullable="false" />
+          <Property Type="DateTime" Name="c_DataDate1" Nullable="true" />
+          <Property Type="Byte" Name="c_FinalResult1" Nullable="true" />
+          <Property Type="DateTime" Name="c_AssignedClassDate1" Nullable="true" />
+          <Property Type="Byte" Name="c_AssignedClassNature1" Nullable="true" />
+          <Property Type="DateTime" Name="c_DataDate2" Nullable="true" />
+          <Property Type="Byte" Name="c_FinalResult2" Nullable="true" />
+          <Property Type="DateTime" Name="c_AssignedClassDate2" Nullable="true" />
+          <Property Type="Byte" Name="c_AssignedClassNature2" Nullable="true" />
+          <Property Type="DateTime" Name="c_DataDate3" Nullable="true" />
+          <Property Type="Byte" Name="c_FinalResult3" Nullable="true" />
+          <Property Type="DateTime" Name="c_AssignedClassDate3" Nullable="true" />
+          <Property Type="Byte" Name="c_AssignedClassNature3" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="t_TrainingClassStudent">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_ClassID" Type="Int32" Nullable="false" />
+          <Property Name="c_ClassDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="c_TrainingTypeID" Type="Int16" Nullable="false" />
+          <Property Name="c_TrainingTypeLinkID" Type="Int16" Nullable="false" />
+          <Property Name="c_CrewID" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="c_FinalResult" Type="Byte" Nullable="false" />
+          <Property Name="c_SchedulingID" Type="Int32" Nullable="false" />
+          <Property Name="c_DocQualified" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="c_ExpiredDate" Type="DateTime" Precision="0" />
+          <Property Name="c_ExpiredBreak" Type="DateTime" Precision="0" />
+          <Property Name="c_Note" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_WarningMessage" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="c_ClassNature" Type="Byte" Nullable="false" />
+          <Property Name="c_CreatedBy" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="c_CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="c_WarningID" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="c_WarningDisabledIDs" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DTV_CabinetModel1StoreContainer" CdmEntityContainer="DTV_CabinetEntities" >
+          <EntitySetMapping Name="t_TrainingTypeCategory">
+            <EntityTypeMapping TypeName="DTV_CabinetModel1.t_TrainingTypeCategory">
+              <MappingFragment StoreEntitySet="t_TrainingTypeCategory">
+                <ScalarProperty Name="c_WarningDisabled" ColumnName="c_WarningDisabled" />
+                <ScalarProperty Name="c_TimesDefault" ColumnName="c_TimesDefault" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_ExternalCode" ColumnName="c_ExternalCode" />
+                <ScalarProperty Name="c_SortOrder" ColumnName="c_SortOrder" />
+                <ScalarProperty Name="c_StatisticEnable" ColumnName="c_StatisticEnable" />
+                <ScalarProperty Name="c_WarningMonths" ColumnName="c_WarningMonths" />
+                <ScalarProperty Name="c_Location" ColumnName="c_Location" />
+                <ScalarProperty Name="c_EstimateStudents" ColumnName="c_EstimateStudents" />
+                <ScalarProperty Name="c_ExpireMonths" ColumnName="c_ExpireMonths" />
+                <ScalarProperty Name="c_BreakCodeID" ColumnName="c_BreakCodeID" />
+                <ScalarProperty Name="c_ValidTo" ColumnName="c_ValidTo" />
+                <ScalarProperty Name="c_ValidFr" ColumnName="c_ValidFr" />
+                <ScalarProperty Name="c_GroupID" ColumnName="c_GroupID" />
+                <ScalarProperty Name="c_Code" ColumnName="c_Code" />
+                <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_TrainingClass">
+            <EntityTypeMapping TypeName="DTV_CabinetModel1.t_TrainingClass">
+              <MappingFragment StoreEntitySet="t_TrainingClass">
+                <ScalarProperty Name="c_ResultCount" ColumnName="c_ResultCount" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_UpdatedBy" ColumnName="c_UpdatedBy" />
+                <ScalarProperty Name="c_UpdatedAt" ColumnName="c_UpdatedAt" />
+                <ScalarProperty Name="c_TeacherCount" ColumnName="c_TeacherCount" />
+                <ScalarProperty Name="c_LogCount" ColumnName="c_LogCount" />
+                <ScalarProperty Name="c_WarningCount" ColumnName="c_WarningCount" />
+                <ScalarProperty Name="c_DocQualified" ColumnName="c_DocQualified" />
+                <ScalarProperty Name="c_Note" ColumnName="c_Note" />
+                <ScalarProperty Name="c_FileCode" ColumnName="c_FileCode" />
+                <ScalarProperty Name="c_ConditionTitle" ColumnName="c_ConditionTitle" />
+                <ScalarProperty Name="c_ConditionMax" ColumnName="c_ConditionMax" />
+                <ScalarProperty Name="c_DaysInWeek" ColumnName="c_DaysInWeek" />
+                <ScalarProperty Name="c_ClassNature" ColumnName="c_ClassNature" />
+                <ScalarProperty Name="c_ExcludingDays" ColumnName="c_ExcludingDays" />
+                <ScalarProperty Name="c_MaxStudents" ColumnName="c_MaxStudents" />
+                <ScalarProperty Name="c_NumOfDocs" ColumnName="c_NumOfDocs" />
+                <ScalarProperty Name="c_NumOfStudent" ColumnName="c_NumOfStudent" />
+                <ScalarProperty Name="c_NumOfDay" ColumnName="c_NumOfDay" />
+                <ScalarProperty Name="c_TestDate" ColumnName="c_TestDate" />
+                <ScalarProperty Name="c_ToHours" ColumnName="c_ToHours" />
+                <ScalarProperty Name="c_FrHours" ColumnName="c_FrHours" />
+                <ScalarProperty Name="c_TimeDefault" ColumnName="c_TimeDefault" />
+                <ScalarProperty Name="c_ToDate" ColumnName="c_ToDate" />
+                <ScalarProperty Name="c_FrDate" ColumnName="c_FrDate" />
+                <ScalarProperty Name="c_Location" ColumnName="c_Location" />
+                <ScalarProperty Name="c_TrainingTypeID" ColumnName="c_TrainingTypeID" />
+                <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_TrainingTypeProgramCategory">
+            <EntityTypeMapping TypeName="DTV_CabinetModel1.t_TrainingTypeProgramCategory">
+              <MappingFragment StoreEntitySet="t_TrainingTypeProgramCategory">
+                <ScalarProperty Name="c_UpdatedBy" ColumnName="c_UpdatedBy" />
+                <ScalarProperty Name="c_UpdatedAt" ColumnName="c_UpdatedAt" />
+                <ScalarProperty Name="c_Note" ColumnName="c_Note" />
+                <ScalarProperty Name="c_IsDeactivated" ColumnName="c_IsDeactivated" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_TeacherCount" ColumnName="c_TeacherCount" />
+                <ScalarProperty Name="c_TeacherAbilities" ColumnName="c_TeacherAbilities" />
+                <ScalarProperty Name="c_DayCount" ColumnName="c_DayCount" />
+                <ScalarProperty Name="c_Code" ColumnName="c_Code" />
+                <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+                <ScalarProperty Name="c_TrainingTypeID" ColumnName="c_TrainingTypeID" />
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_TrainingTypeSubjectCategory">
+            <EntityTypeMapping TypeName="DTV_CabinetModel1.t_TrainingTypeSubjectCategory">
+              <MappingFragment StoreEntitySet="t_TrainingTypeSubjectCategory">
+                <ScalarProperty Name="temp_Column" ColumnName="temp_Column" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_IsDeactivated" ColumnName="c_IsDeactivated" />
+                <ScalarProperty Name="c_ResultType" ColumnName="c_ResultType" />
+                <ScalarProperty Name="c_SortOrder" ColumnName="c_SortOrder" />
+                <ScalarProperty Name="c_ValidFr" ColumnName="c_ValidFr" />
+                <ScalarProperty Name="c_Name" ColumnName="c_Name" />
+                <ScalarProperty Name="c_TrainingTypeID" ColumnName="c_TrainingTypeID" />
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_TrainingStudentStatistic_L" FunctionName="DTV_CabinetModel1.Store.sp_TrainingStudentStatistic_L">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DTV_CabinetModel1.sp_TrainingStudentStatistic_L_Result">
+                <ScalarProperty Name="c_CrewID" ColumnName="c_CrewID" />
+                <ScalarProperty Name="c_CrewName" ColumnName="c_CrewName" />
+                <ScalarProperty Name="c_DeptName" ColumnName="c_DeptName" />
+                <ScalarProperty Name="c_EmployerID" ColumnName="c_EmployerID" />
+                <ScalarProperty Name="c_EmployerType" ColumnName="c_EmployerType" />
+                <ScalarProperty Name="c_Base" ColumnName="c_Base" />
+                <ScalarProperty Name="c_LastMiddleName" ColumnName="c_LastMiddleName" />
+                <ScalarProperty Name="c_LastOpsDate" ColumnName="c_LastOpsDate" />
+                <ScalarProperty Name="c_LastOpsCode" ColumnName="c_LastOpsCode" />
+                <ScalarProperty Name="c_LastOpsText" ColumnName="c_LastOpsText" />
+                <ScalarProperty Name="c_LastOpsFrDate" ColumnName="c_LastOpsFrDate" />
+                <ScalarProperty Name="c_LastOpsToDate" ColumnName="c_LastOpsToDate" />
+                <ScalarProperty Name="c_CrewTitle" ColumnName="c_CrewTitle" />
+                <ScalarProperty Name="c_Gender" ColumnName="c_Gender" />
+                <ScalarProperty Name="c_Languages" ColumnName="c_Languages" />
+                <ScalarProperty Name="c_TeachingCodes" ColumnName="c_TeachingCodes" />
+                <ScalarProperty Name="c_CrewTitleDate" ColumnName="c_CrewTitleDate" />
+                <ScalarProperty Name="c_EmployeeFromDate" ColumnName="c_EmployeeFromDate" />
+                <ScalarProperty Name="c_LangEType" ColumnName="c_LangEType" />
+                <ScalarProperty Name="c_LangEPoint" ColumnName="c_LangEPoint" />
+                <ScalarProperty Name="c_LangEDate" ColumnName="c_LangEDate" />
+                <ScalarProperty Name="c_FirstCourse" ColumnName="c_FirstCourse" />
+                <ScalarProperty Name="c_FlyCapability" ColumnName="c_FlyCapability" />
+                <ScalarProperty Name="c_FlyCapabilityFull" ColumnName="c_FlyCapabilityFull" />
+                <ScalarProperty Name="c_ClassID" ColumnName="c_ClassID" />
+                <ScalarProperty Name="c_ClassName" ColumnName="c_ClassName" />
+                <ScalarProperty Name="c_ClassStudentID" ColumnName="c_ClassStudentID" />
+                <ScalarProperty Name="c_DataDate1" ColumnName="c_DataDate1" />
+                <ScalarProperty Name="c_FinalResult1" ColumnName="c_FinalResult1" />
+                <ScalarProperty Name="c_AssignedClassDate1" ColumnName="c_AssignedClassDate1" />
+                <ScalarProperty Name="c_AssignedClassNature1" ColumnName="c_AssignedClassNature1" />
+                <ScalarProperty Name="c_DataDate2" ColumnName="c_DataDate2" />
+                <ScalarProperty Name="c_FinalResult2" ColumnName="c_FinalResult2" />
+                <ScalarProperty Name="c_AssignedClassDate2" ColumnName="c_AssignedClassDate2" />
+                <ScalarProperty Name="c_AssignedClassNature2" ColumnName="c_AssignedClassNature2" />
+                <ScalarProperty Name="c_DataDate3" ColumnName="c_DataDate3" />
+                <ScalarProperty Name="c_FinalResult3" ColumnName="c_FinalResult3" />
+                <ScalarProperty Name="c_AssignedClassDate3" ColumnName="c_AssignedClassDate3" />
+                <ScalarProperty Name="c_AssignedClassNature3" ColumnName="c_AssignedClassNature3" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="t_TrainingClassStudent">
+            <EntityTypeMapping TypeName="DTV_CabinetModel1.t_TrainingClassStudent">
+              <MappingFragment StoreEntitySet="t_TrainingClassStudent">
+                <ScalarProperty Name="c_WarningDisabledIDs" ColumnName="c_WarningDisabledIDs" />
+                <ScalarProperty Name="c_WarningID" ColumnName="c_WarningID" />
+                <ScalarProperty Name="c_CreatedAt" ColumnName="c_CreatedAt" />
+                <ScalarProperty Name="c_CreatedBy" ColumnName="c_CreatedBy" />
+                <ScalarProperty Name="c_ClassNature" ColumnName="c_ClassNature" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_WarningMessage" ColumnName="c_WarningMessage" />
+                <ScalarProperty Name="c_Note" ColumnName="c_Note" />
+                <ScalarProperty Name="c_ExpiredBreak" ColumnName="c_ExpiredBreak" />
+                <ScalarProperty Name="c_ExpiredDate" ColumnName="c_ExpiredDate" />
+                <ScalarProperty Name="c_DocQualified" ColumnName="c_DocQualified" />
+                <ScalarProperty Name="c_SchedulingID" ColumnName="c_SchedulingID" />
+                <ScalarProperty Name="c_FinalResult" ColumnName="c_FinalResult" />
+                <ScalarProperty Name="c_CrewID" ColumnName="c_CrewID" />
+                <ScalarProperty Name="c_TrainingTypeLinkID" ColumnName="c_TrainingTypeLinkID" />
+                <ScalarProperty Name="c_TrainingTypeID" ColumnName="c_TrainingTypeID" />
+                <ScalarProperty Name="c_ClassDate" ColumnName="c_ClassDate" />
+                <ScalarProperty Name="c_ClassID" ColumnName="c_ClassID" />
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7FDAD0D4-FD83-45A8-92D6-CFEB049C7249}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Update_Crew_Info</RootNamespace>
+    <AssemblyName>Update Crew Info</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Interop.Domino, Version=1.2.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\interop.domino.dll.1.0.0\lib\Interop.Domino.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Exchange.WebServices.Auth, Version=15.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Exchange.WebServices.2.2\lib\40\Microsoft.Exchange.WebServices.Auth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NDbfReader, Version=2.3.0.0, Culture=neutral, PublicKeyToken=421d1ecd09787b1d, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDbfReader.2.3.0\lib\net45\NDbfReader.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Cabinet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cabinet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cabinet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cabinet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Cabinet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cabinet.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\chucdanh.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\chucvu.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CR_FlightInfo.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CR_Flight_CoviComRoute.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CR_NoneFlight.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CR_NoneFlight_Category.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CR_TimeZone.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\danhmuc.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ERMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ERMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ERMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ERMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HoSoGoc.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Contract.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Contract_Category.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Contract_Termination.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Dep_Cat.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Dep_Log.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_GBLuyke.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_GroupMail.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Mail.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_MailinGroup.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_MailOpsLog.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_NhanThan.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_Party.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\HR_ThanNhan.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\khenkluat.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ngoaingu.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\nhomchuyenmon.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\PView_ktkl.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\qlttlaodong.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RedAnt.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RedAnt.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RedAnt.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\RedAnt.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RedAnt.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SataSMS.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SataSMS.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SataSMS.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SataSMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\SataSMS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SataSMS.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\smsAddressBook.cs">
+      <DependentUpon>SataSMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_TrainingStudentStatistic_L_Result.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Sys_Account.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tamhoanhd.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tbQuyetDinh.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TMP_GSHH.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrainingModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainingModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrainingModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TrainingModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrainingModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\TRN_HisLearning.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_SalaryLCBDetail.cs">
+      <DependentUpon>Cabinet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_SalaryLCDDetail.cs">
+      <DependentUpon>Cabinet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_TrainingClass.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_TrainingClassStudent.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_TrainingTypeCategory.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_TrainingTypeProgramCategory.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\t_TrainingTypeSubjectCategory.cs">
+      <DependentUpon>TrainingModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Counter_Child_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_GetOtherLanguage_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Address_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Chucdanh_LCB_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Chucdanh_Momment_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Chucdanh_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_ChucvuTV_All_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_CV_Emergency_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_DS_Tinh_Luong_Danh_Gia_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_KhacToeic_Moinhat_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_get_ktkl_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Ngoaingu_Moinhat_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Ngoaingu_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Relationship_Info_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Relative_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_TOEIC_By_Create_Time_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_Get_Toeic_Moinhat_Result.cs">
+      <DependentUpon>RedAnt.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\USP_HR_UpdateMailGroup_Result.cs">
+      <DependentUpon>ERMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scheduler.cs" />
+    <Compile Include="Services\SchedulerService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="Model\ERMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ERMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="Model\Cabinet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Cabinet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\Cabinet.edmx.diagram">
+      <DependentUpon>Cabinet.edmx</DependentUpon>
+    </None>
+    <None Include="Model\ERMS.edmx.diagram">
+      <DependentUpon>ERMS.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\RedAnt.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>RedAnt.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\RedAnt.edmx.diagram">
+      <DependentUpon>RedAnt.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\SataSMS.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SataSMS.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\SataSMS.edmx.diagram">
+      <DependentUpon>SataSMS.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="Model\TrainingModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TrainingModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\TrainingModel.edmx.diagram">
+      <DependentUpon>TrainingModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model\Cabinet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cabinet.edmx</DependentUpon>
+      <LastGenOutput>Cabinet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\Cabinet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Cabinet.edmx</DependentUpon>
+      <LastGenOutput>Cabinet.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ERMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERMS.edmx</DependentUpon>
+      <LastGenOutput>ERMS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\ERMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ERMS.edmx</DependentUpon>
+      <LastGenOutput>ERMS.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\RedAnt.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RedAnt.edmx</DependentUpon>
+      <LastGenOutput>RedAnt.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\RedAnt.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>RedAnt.edmx</DependentUpon>
+      <LastGenOutput>RedAnt.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SataSMS.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SataSMS.edmx</DependentUpon>
+      <LastGenOutput>SataSMS.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\SataSMS.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SataSMS.edmx</DependentUpon>
+      <LastGenOutput>SataSMS.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\TrainingModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrainingModel.edmx</DependentUpon>
+      <LastGenOutput>TrainingModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\TrainingModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TrainingModel.edmx</DependentUpon>
+      <LastGenOutput>TrainingModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

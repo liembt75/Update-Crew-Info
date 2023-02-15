@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2998bd756ec94aeb8d87208853769b76" Name="Diagram1" ZoomLevel="26">
+        <EntityTypeShape EntityType="VietnamRedantModel.chucdanh" Width="1.5" PointX="3" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.chucvu" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.danhmuc" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.HoSoGoc" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.khenkluat" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.ngoaingu" Width="1.5" PointX="3" PointY="15.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.qlttlaodong" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.tamhoanhd" Width="1.5" PointX="5.25" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="VietnamRedantModel.tbQuyetDinh" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="VietnamRedantModel.FK_chucdanh_HoSoGoc" ManuallyRouted="false" />
+        <AssociationConnector Association="VietnamRedantModel.FK_chucvu_HoSoGoc" ManuallyRouted="false" />
+        <AssociationConnector Association="VietnamRedantModel.FK_khenkluat_HoSoGoc" ManuallyRouted="false" />
+        <AssociationConnector Association="VietnamRedantModel.FK_ngoaingu_HoSoGoc1" ManuallyRouted="false" />
+        <AssociationConnector Association="VietnamRedantModel.FK_qlttlaodong_HoSoGoc" ManuallyRouted="false" />
+        <AssociationConnector Association="VietnamRedantModel.FK_tamhoanhd_qlttlaodong" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="VietnamRedantModel.nhomchuyenmon" Width="1.5" PointX="3" PointY="26.625" />
+        <AssociationConnector Association="VietnamRedantModel.FK_nhomchuyenmon_HoSoGoc" />
+        <EntityTypeShape EntityType="VietnamRedantModel.PView_ktkl" Width="1.5" PointX="8.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

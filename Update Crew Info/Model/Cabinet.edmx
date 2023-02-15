@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DTV_CabinetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_SalaryLCBDetail">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_CrewID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_CrewName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="c_EmployerID" Type="tinyint" Nullable="false" />
+          <Property Name="c_Base" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="c_ContractType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_FlightID" Type="int" Nullable="false" />
+          <Property Name="c_FlightNo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_FrAirport" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="c_ToAirport" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="c_FrAirportDom" Type="bit" Nullable="false" />
+          <Property Name="c_ToAirportDom" Type="bit" Nullable="false" />
+          <Property Name="c_UTC_STD" Type="datetime" Nullable="false" />
+          <Property Name="c_UTC_ATD" Type="datetime" Nullable="false" />
+          <Property Name="c_TimeZone_D" Type="tinyint" Nullable="false" />
+          <Property Name="c_UTC_STA" Type="datetime" Nullable="false" />
+          <Property Name="c_UTC_ATA" Type="datetime" Nullable="false" />
+          <Property Name="c_TimeZone_A" Type="tinyint" Nullable="false" />
+          <Property Name="c_AircarftType" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_FlightCarry" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_FlyingMinsS" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_FlyingMinsA" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_JobTitle" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_JobDuty" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_JobSalary" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_JobCA" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_JobVIP" Type="bit" Nullable="false" />
+          <Property Name="c_UnitPrice" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_UnitPriceFC" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_UnitPriceRemark" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_Total" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_TotalFC" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_SalaryGroup" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_HoTroBayKem" Type="bit" Nullable="false" />
+          <Property Name="c_PhuCapBayKem" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapPhatNgon" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapBayCharter" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapNgoaiBase" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_LuongBayTet" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_IsForLTU" Type="bit" Nullable="false" />
+          <Property Name="c_Note" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="c_PeriodTag" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_RunTag" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="c_CreatedAt" Type="datetime" Nullable="false" />
+          <Property Name="c_FlyingMinsFT4H" Type="decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_DataOfMonth" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_SalaryLCDDetail">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="c_CrewID" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="c_EmployerID" Type="tinyint" Nullable="false" />
+          <Property Name="c_FrTime" Type="datetime" Nullable="false" />
+          <Property Name="c_ToTime" Type="datetime" Nullable="false" />
+          <Property Name="c_Code" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="c_CodeMappingPID" Type="int" Nullable="false" />
+          <Property Name="c_Hours" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_DayValueOfDuty" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_Priority" Type="smallint" Nullable="false" />
+          <Property Name="c_Note" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="c_PeriodTag" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_RunTag" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_RunRemark" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DTV_CabinetModelStoreContainer">
+          <EntitySet Name="t_SalaryLCBDetail" EntityType="Self.t_SalaryLCBDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_SalaryLCDDetail" EntityType="Self.t_SalaryLCDDetail" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DTV_CabinetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_SalaryLCBDetail">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_CrewID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_CrewName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_EmployerID" Type="Byte" Nullable="false" />
+          <Property Name="c_Base" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="c_ContractType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_FlightID" Type="Int32" Nullable="false" />
+          <Property Name="c_FlightNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_FrAirport" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="c_ToAirport" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="c_FrAirportDom" Type="Boolean" Nullable="false" />
+          <Property Name="c_ToAirportDom" Type="Boolean" Nullable="false" />
+          <Property Name="c_UTC_STD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_UTC_ATD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_TimeZone_D" Type="Byte" Nullable="false" />
+          <Property Name="c_UTC_STA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_UTC_ATA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_TimeZone_A" Type="Byte" Nullable="false" />
+          <Property Name="c_AircarftType" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_FlightCarry" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_FlyingMinsS" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_FlyingMinsA" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_JobTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_JobDuty" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_JobSalary" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_JobCA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_JobVIP" Type="Boolean" Nullable="false" />
+          <Property Name="c_UnitPrice" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_UnitPriceFC" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_UnitPriceRemark" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_Total" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_TotalFC" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_SalaryGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_HoTroBayKem" Type="Boolean" Nullable="false" />
+          <Property Name="c_PhuCapBayKem" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapPhatNgon" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapBayCharter" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_PhuCapNgoaiBase" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_LuongBayTet" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_IsForLTU" Type="Boolean" Nullable="false" />
+          <Property Name="c_Note" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_PeriodTag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_RunTag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="c_CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_FlyingMinsFT4H" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="c_DataOfMonth" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="t_SalaryLCDDetail">
+          <Key>
+            <PropertyRef Name="c_PID" />
+          </Key>
+          <Property Name="c_PID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="c_CrewID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_EmployerID" Type="Byte" Nullable="false" />
+          <Property Name="c_FrTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_ToTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="c_Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_CodeMappingPID" Type="Int32" Nullable="false" />
+          <Property Name="c_Hours" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_DayValueOfDuty" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="c_Priority" Type="Int16" Nullable="false" />
+          <Property Name="c_Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_PeriodTag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_RunTag" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="c_RunRemark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="c_IsDeleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CabinetEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_SalaryLCBDetail" EntityType="Self.t_SalaryLCBDetail" />
+          <EntitySet Name="t_SalaryLCDDetail" EntityType="Self.t_SalaryLCDDetail" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DTV_CabinetModelStoreContainer" CdmEntityContainer="CabinetEntities">
+          <EntitySetMapping Name="t_SalaryLCBDetail">
+            <EntityTypeMapping TypeName="DTV_CabinetModel.t_SalaryLCBDetail">
+              <MappingFragment StoreEntitySet="t_SalaryLCBDetail">
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+                <ScalarProperty Name="c_CrewID" ColumnName="c_CrewID" />
+                <ScalarProperty Name="c_CrewName" ColumnName="c_CrewName" />
+                <ScalarProperty Name="c_EmployerID" ColumnName="c_EmployerID" />
+                <ScalarProperty Name="c_Base" ColumnName="c_Base" />
+                <ScalarProperty Name="c_ContractType" ColumnName="c_ContractType" />
+                <ScalarProperty Name="c_FlightID" ColumnName="c_FlightID" />
+                <ScalarProperty Name="c_FlightNo" ColumnName="c_FlightNo" />
+                <ScalarProperty Name="c_FrAirport" ColumnName="c_FrAirport" />
+                <ScalarProperty Name="c_ToAirport" ColumnName="c_ToAirport" />
+                <ScalarProperty Name="c_FrAirportDom" ColumnName="c_FrAirportDom" />
+                <ScalarProperty Name="c_ToAirportDom" ColumnName="c_ToAirportDom" />
+                <ScalarProperty Name="c_UTC_STD" ColumnName="c_UTC_STD" />
+                <ScalarProperty Name="c_UTC_ATD" ColumnName="c_UTC_ATD" />
+                <ScalarProperty Name="c_TimeZone_D" ColumnName="c_TimeZone_D" />
+                <ScalarProperty Name="c_UTC_STA" ColumnName="c_UTC_STA" />
+                <ScalarProperty Name="c_UTC_ATA" ColumnName="c_UTC_ATA" />
+                <ScalarProperty Name="c_TimeZone_A" ColumnName="c_TimeZone_A" />
+                <ScalarProperty Name="c_AircarftType" ColumnName="c_AircarftType" />
+                <ScalarProperty Name="c_FlightCarry" ColumnName="c_FlightCarry" />
+                <ScalarProperty Name="c_FlyingMinsS" ColumnName="c_FlyingMinsS" />
+                <ScalarProperty Name="c_FlyingMinsA" ColumnName="c_FlyingMinsA" />
+                <ScalarProperty Name="c_JobTitle" ColumnName="c_JobTitle" />
+                <ScalarProperty Name="c_JobDuty" ColumnName="c_JobDuty" />
+                <ScalarProperty Name="c_JobSalary" ColumnName="c_JobSalary" />
+                <ScalarProperty Name="c_JobCA" ColumnName="c_JobCA" />
+                <ScalarProperty Name="c_JobVIP" ColumnName="c_JobVIP" />
+                <ScalarProperty Name="c_UnitPrice" ColumnName="c_UnitPrice" />
+                <ScalarProperty Name="c_UnitPriceFC" ColumnName="c_UnitPriceFC" />
+                <ScalarProperty Name="c_UnitPriceRemark" ColumnName="c_UnitPriceRemark" />
+                <ScalarProperty Name="c_Total" ColumnName="c_Total" />
+                <ScalarProperty Name="c_TotalFC" ColumnName="c_TotalFC" />
+                <ScalarProperty Name="c_SalaryGroup" ColumnName="c_SalaryGroup" />
+                <ScalarProperty Name="c_HoTroBayKem" ColumnName="c_HoTroBayKem" />
+                <ScalarProperty Name="c_PhuCapBayKem" ColumnName="c_PhuCapBayKem" />
+                <ScalarProperty Name="c_PhuCapPhatNgon" ColumnName="c_PhuCapPhatNgon" />
+                <ScalarProperty Name="c_PhuCapBayCharter" ColumnName="c_PhuCapBayCharter" />
+                <ScalarProperty Name="c_PhuCapNgoaiBase" ColumnName="c_PhuCapNgoaiBase" />
+                <ScalarProperty Name="c_LuongBayTet" ColumnName="c_LuongBayTet" />
+                <ScalarProperty Name="c_IsForLTU" ColumnName="c_IsForLTU" />
+                <ScalarProperty Name="c_Note" ColumnName="c_Note" />
+                <ScalarProperty Name="c_PeriodTag" ColumnName="c_PeriodTag" />
+                <ScalarProperty Name="c_RunTag" ColumnName="c_RunTag" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+                <ScalarProperty Name="c_CreatedAt" ColumnName="c_CreatedAt" />
+                <ScalarProperty Name="c_FlyingMinsFT4H" ColumnName="c_FlyingMinsFT4H" />
+                <ScalarProperty Name="c_DataOfMonth" ColumnName="c_DataOfMonth" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_SalaryLCDDetail">
+            <EntityTypeMapping TypeName="DTV_CabinetModel.t_SalaryLCDDetail">
+              <MappingFragment StoreEntitySet="t_SalaryLCDDetail">
+                <ScalarProperty Name="c_PID" ColumnName="c_PID" />
+                <ScalarProperty Name="c_CrewID" ColumnName="c_CrewID" />
+                <ScalarProperty Name="c_EmployerID" ColumnName="c_EmployerID" />
+                <ScalarProperty Name="c_FrTime" ColumnName="c_FrTime" />
+                <ScalarProperty Name="c_ToTime" ColumnName="c_ToTime" />
+                <ScalarProperty Name="c_Code" ColumnName="c_Code" />
+                <ScalarProperty Name="c_CodeMappingPID" ColumnName="c_CodeMappingPID" />
+                <ScalarProperty Name="c_Hours" ColumnName="c_Hours" />
+                <ScalarProperty Name="c_DayValueOfDuty" ColumnName="c_DayValueOfDuty" />
+                <ScalarProperty Name="c_Priority" ColumnName="c_Priority" />
+                <ScalarProperty Name="c_Note" ColumnName="c_Note" />
+                <ScalarProperty Name="c_PeriodTag" ColumnName="c_PeriodTag" />
+                <ScalarProperty Name="c_RunTag" ColumnName="c_RunTag" />
+                <ScalarProperty Name="c_RunRemark" ColumnName="c_RunRemark" />
+                <ScalarProperty Name="c_IsDeleted" ColumnName="c_IsDeleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
