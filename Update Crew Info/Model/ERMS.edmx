@@ -388,6 +388,7 @@
           <Property Name="Relationship" Type="nvarchar" MaxLength="50" />
           <Property Name="FullName" Type="nvarchar" MaxLength="55" />
           <Property Name="DoB" Type="datetime" />
+          <Property Name="Sex" Type="nvarchar" MaxLength="10" />
           <Property Name="Address" Type="nvarchar" MaxLength="500" />
           <Property Name="Note" Type="nvarchar" MaxLength="200" />
           <Property Name="OrgID" Type="int" />
@@ -607,20 +608,6 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
           <Property Name="Created" Type="DateTime" Precision="3" />
           <Property Name="Modified" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="HR_ThanNhan">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CrewID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="FullName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
-          <Property Name="DoB" Type="DateTime" Precision="3" />
-          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="OrgID" Type="Int32" />
-          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Sys_Account">
           <Key>
             <PropertyRef Name="ID" />
@@ -701,7 +688,6 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
         <EntityContainer Name="ERMSEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="HR_GBLuyke" EntityType="Self.HR_GBLuyke" />
           <EntitySet Name="HR_Party" EntityType="Self.HR_Party" />
-          <EntitySet Name="HR_ThanNhan" EntityType="Self.HR_ThanNhan" />
           <EntitySet Name="Sys_Account" EntityType="Self.Sys_Account" />
           <EntitySet Name="CR_NoneFlight" EntityType="ERMSModel.CR_NoneFlight" />
           <EntitySet Name="CR_NoneFlight_Category" EntityType="ERMSModel.CR_NoneFlight_Category" />
@@ -726,6 +712,7 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
           <EntitySet Name="HR_GroupMail" EntityType="ERMSModel.HR_GroupMail" />
           <EntitySet Name="HR_MailinGroup" EntityType="ERMSModel.HR_MailinGroup" />
           <FunctionImport Name="USP_HR_UpdateMailGroup" ReturnType="Collection(ERMSModel.USP_HR_UpdateMailGroup_Result)" />
+          <EntitySet Name="HR_ThanNhan" EntityType="ERMSModel.HR_ThanNhan" />
         </EntityContainer>
         <EntityType Name="CR_NoneFlight">
           <Key>
@@ -1134,6 +1121,21 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
           <Property Type="String" Name="Note" Nullable="false" MaxLength="6" />
           <Property Type="String" Name="Account" Nullable="true" MaxLength="150" />
         </ComplexType>
+        <EntityType Name="HR_ThanNhan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CrewID" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Relationship" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FullName" Type="String" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="DoB" Type="DateTime" Precision="3" />
+          <Property Name="Sex" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="OrgID" Type="Int32" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1177,21 +1179,6 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
                 <ScalarProperty Name="Note" ColumnName="Note" />
                 <ScalarProperty Name="Created" ColumnName="Created" />
                 <ScalarProperty Name="Modified" ColumnName="Modified" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HR_ThanNhan">
-            <EntityTypeMapping TypeName="ERMSModel.HR_ThanNhan">
-              <MappingFragment StoreEntitySet="HR_ThanNhan">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
-                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
-                <ScalarProperty Name="FullName" ColumnName="FullName" />
-                <ScalarProperty Name="DoB" ColumnName="DoB" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1683,6 +1670,22 @@ warning 6002: The table/view 'ERMS.dbo.PView_ktkl' does not have a primary key d
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <EntitySetMapping Name="HR_ThanNhan">
+            <EntityTypeMapping TypeName="ERMSModel.HR_ThanNhan">
+              <MappingFragment StoreEntitySet="HR_ThanNhan">
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="CrewID" ColumnName="CrewID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

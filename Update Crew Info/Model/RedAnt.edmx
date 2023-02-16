@@ -282,6 +282,7 @@ warning 6002: The table/view 'VietnamRedant.dbo.PView_ktkl' does not have a prim
           <Property Name="ktkl_ngay" Type="smalldatetime" Nullable="false" />
           <Property Name="ktkl_ghichu" Type="nvarchar" MaxLength="250" />
           <Property Name="ktkl_ndung" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ktkl_soqd" Type="nvarchar" MaxLength="20" />
         </EntityType>
         <Association Name="FK_chucdanh_HoSoGoc">
           <End Role="HoSoGoc" Type="Self.HoSoGoc" Multiplicity="1">
@@ -461,7 +462,8 @@ warning 6002: The table/view 'VietnamRedant.dbo.PView_ktkl' does not have a prim
 [PView_ktkl].[TenDanhMuc] AS [TenDanhMuc], 
 [PView_ktkl].[ktkl_ngay] AS [ktkl_ngay], 
 [PView_ktkl].[ktkl_ghichu] AS [ktkl_ghichu], 
-[PView_ktkl].[ktkl_ndung] AS [ktkl_ndung]
+[PView_ktkl].[ktkl_ndung] AS [ktkl_ndung], 
+[PView_ktkl].[ktkl_soqd] AS [ktkl_soqd]
 FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK_chucdanh_HoSoGoc" Association="Self.FK_chucdanh_HoSoGoc">
@@ -919,9 +921,6 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
             <Parameter Name="codetv" Mode="In" Type="String" />
             <Parameter Name="loaingoaingu" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="USP_Get_Relationship_Info" ReturnType="Collection(VietnamRedantModel.USP_Get_Relationship_Info_Result)">
-          <Parameter Name="CrewID" Mode="In" Type="String" />
-          </FunctionImport>
           <FunctionImport Name="USP_Get_Relative" ReturnType="Collection(VietnamRedantModel.USP_Get_Relative_Result)">
             <Parameter Name="codetv" Mode="In" Type="String" />
             <Parameter Name="loai" Mode="In" Type="Int32" />
@@ -945,6 +944,9 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
           <Parameter Name="CrewID" Mode="In" Type="String" />
           </FunctionImport>
           <EntitySet Name="PView_ktkl" EntityType="VietnamRedantModel.PView_ktkl" />
+          <FunctionImport Name="USP_Get_Relationship_Info" ReturnType="Collection(VietnamRedantModel.USP_Get_Relationship_Info_Result)">
+            <Parameter Name="CrewID" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="USP_Counter_Child_Result">
           <Property Type="String" Name="mans" Nullable="false" MaxLength="5" />
@@ -1045,15 +1047,6 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
           <Property Type="Double" Name="tong" Nullable="true" />
           <Property Type="DateTime" Name="ngaycap" Nullable="true" Precision="16" />
         </ComplexType>
-        <ComplexType Name="USP_Get_Relationship_Info_Result">
-          <Property Type="String" Name="CrewiD" Nullable="false" MaxLength="5" />
-          <Property Type="String" Name="Relationship" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="FulleName" Nullable="true" MaxLength="60" />
-          <Property Type="DateTime" Name="DoB" Nullable="false" Precision="16" />
-          <Property Type="String" Name="Note" Nullable="true" MaxLength="4000" />
-          <Property Type="String" Name="Address" Nullable="false" MaxLength="131" />
-          <Property Type="Int32" Name="OrgID" Nullable="false" />
-        </ComplexType>
         <ComplexType Name="USP_Get_Relative_Result">
           <Property Type="String" Name="giadinh_hoten" Nullable="false" MaxLength="60" />
           <Property Type="String" Name="quanhe" Nullable="false" MaxLength="50" />
@@ -1138,7 +1131,18 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
           <Property Name="ktkl_ngay" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="ktkl_ghichu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="ktkl_ndung" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ktkl_soqd" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="USP_Get_Relationship_Info_Result">
+          <Property Type="String" Name="CrewiD" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="Relationship" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="FulleName" Nullable="true" MaxLength="60" />
+          <Property Type="DateTime" Name="DoB" Nullable="false" Precision="16" />
+          <Property Type="String" Name="Sex" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Note" Nullable="true" MaxLength="4000" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="131" />
+          <Property Type="Int32" Name="OrgID" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1549,19 +1553,6 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="USP_Get_Relationship_Info" FunctionName="VietnamRedantModel.Store.USP_Get_Relationship_Info">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="VietnamRedantModel.USP_Get_Relationship_Info_Result">
-                <ScalarProperty Name="CrewiD" ColumnName="CrewiD" />
-                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
-                <ScalarProperty Name="FulleName" ColumnName="FulleName" />
-                <ScalarProperty Name="DoB" ColumnName="DoB" />
-                <ScalarProperty Name="Note" ColumnName="Note" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="USP_Get_Relative" FunctionName="VietnamRedantModel.Store.USP_Get_Relative">
             <ResultMapping>
               <ComplexTypeMapping TypeName="VietnamRedantModel.USP_Get_Relative_Result">
@@ -1640,6 +1631,7 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
           <EntitySetMapping Name="PView_ktkl">
             <EntityTypeMapping TypeName="VietnamRedantModel.PView_ktkl">
               <MappingFragment StoreEntitySet="PView_ktkl">
+                <ScalarProperty Name="ktkl_soqd" ColumnName="ktkl_soqd" />
                 <ScalarProperty Name="ktkl_ndung" ColumnName="ktkl_ndung" />
                 <ScalarProperty Name="ktkl_ghichu" ColumnName="ktkl_ghichu" />
                 <ScalarProperty Name="ktkl_ngay" ColumnName="ktkl_ngay" />
@@ -1651,6 +1643,20 @@ FROM [dbo].[PView_ktkl] AS [PView_ktkl]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="USP_Get_Relationship_Info" FunctionName="VietnamRedantModel.Store.USP_Get_Relationship_Info">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VietnamRedantModel.USP_Get_Relationship_Info_Result">
+                <ScalarProperty Name="CrewiD" ColumnName="CrewiD" />
+                <ScalarProperty Name="Relationship" ColumnName="Relationship" />
+                <ScalarProperty Name="FulleName" ColumnName="FulleName" />
+                <ScalarProperty Name="DoB" ColumnName="DoB" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="OrgID" ColumnName="OrgID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

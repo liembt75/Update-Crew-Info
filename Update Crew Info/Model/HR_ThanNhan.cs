@@ -19,6 +19,7 @@ namespace Update_Crew_Info.Model
         public string Relationship { get; set; }
         public string FullName { get; set; }
         public Nullable<System.DateTime> DoB { get; set; }
+        public string Sex { get; set; }
         public string Address { get; set; }
         public string Note { get; set; }
         public Nullable<int> OrgID { get; set; }

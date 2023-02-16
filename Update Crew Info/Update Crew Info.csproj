@@ -178,7 +178,7 @@
       <DependentUpon>RedAnt.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\PView_ktkl.cs">
-      <DependentUpon>ERMS.tt</DependentUpon>
+      <DependentUpon>RedAnt.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\qlttlaodong.cs">
       <DependentUpon>RedAnt.tt</DependentUpon>

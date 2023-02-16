@@ -15,12 +15,13 @@ namespace Update_Crew_Info.Model
     public partial class PView_ktkl
     {
         public string mans { get; set; }
-        public int ktkl_hinhthuc { get; set; }
-        public System.DateTime ktkl_ngayqd { get; set; }
+        public Nullable<int> ktkl_hinhthuc { get; set; }
+        public Nullable<System.DateTime> ktkl_ngayqd { get; set; }
         public bool kyluat { get; set; }
         public string TenDanhMuc { get; set; }
         public System.DateTime ktkl_ngay { get; set; }
         public string ktkl_ghichu { get; set; }
         public string ktkl_ndung { get; set; }
+        public string ktkl_soqd { get; set; }
     }
 }

@@ -7,7 +7,6 @@
       <Diagram DiagramId="fab89f3027c24b5c8ee833fcb9ae7617" Name="Diagram1" ZoomLevel="50">
         <EntityTypeShape EntityType="ERMSModel.HR_GBLuyke" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERMSModel.HR_Party" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ERMSModel.HR_ThanNhan" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERMSModel.Sys_Account" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ERMSModel.CR_NoneFlight" Width="1.5" PointX="12.625" PointY="1.125" />
         <EntityTypeShape EntityType="ERMSModel.CR_NoneFlight_Category" Width="1.5" PointX="10.375" PointY="2.625" />
@@ -28,6 +27,7 @@
         <EntityTypeShape EntityType="ERMSModel.HR_MailOpsLog" Width="1.5" PointX="17.375" PointY="0.75" />
         <EntityTypeShape EntityType="ERMSModel.HR_GroupMail" Width="1.5" PointX="0.75" PointY="17.75" />
         <EntityTypeShape EntityType="ERMSModel.HR_MailinGroup" Width="1.5" PointX="17.75" PointY="5.75" />
+        <EntityTypeShape EntityType="ERMSModel.HR_ThanNhan" Width="1.5" PointX="17.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

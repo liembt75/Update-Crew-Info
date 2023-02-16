@@ -922,7 +922,7 @@ namespace Update_Crew_Info
                     {
                         rela.Relationship = item.Relationship;
                         rela.FullName = item.FulleName;
-
+                        rela.Sex = item.Sex;
                         rela.DoB = item.DoB;
                         rela.Note = item.Note;
                         numUpdate++;
@@ -935,6 +935,7 @@ namespace Update_Crew_Info
                         rel.Relationship = item.Relationship;
                         rel.FullName = item.FulleName;
                         rel.DoB = item.DoB;
+                        rela.Sex = item.Sex;
                         rel.Note = item.Note;
                         db.HR_ThanNhan.Add(rel);
                         numAdd++;

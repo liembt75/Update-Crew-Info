@@ -176,15 +176,6 @@ namespace Update_Crew_Info.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_Get_Ngoaingu_Moinhat_Result>("USP_Get_Ngoaingu_Moinhat", codetvParameter, loaingoainguParameter);
         }
     
-        public virtual ObjectResult<USP_Get_Relationship_Info_Result> USP_Get_Relationship_Info(string crewID)
-        {
-            var crewIDParameter = crewID != null ?
-                new ObjectParameter("CrewID", crewID) :
-                new ObjectParameter("CrewID", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_Get_Relationship_Info_Result>("USP_Get_Relationship_Info", crewIDParameter);
-        }
-    
         public virtual ObjectResult<USP_Get_Relative_Result> USP_Get_Relative(string codetv, Nullable<int> loai)
         {
             var codetvParameter = codetv != null ?
@@ -236,6 +227,15 @@ namespace Update_Crew_Info.Model
                 new ObjectParameter("CrewID", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_Get_Address_Result>("USP_Get_Address", crewIDParameter);
+        }
+    
+        public virtual ObjectResult<USP_Get_Relationship_Info_Result> USP_Get_Relationship_Info(string crewID)
+        {
+            var crewIDParameter = crewID != null ?
+                new ObjectParameter("CrewID", crewID) :
+                new ObjectParameter("CrewID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_Get_Relationship_Info_Result>("USP_Get_Relationship_Info", crewIDParameter);
         }
     }
 }

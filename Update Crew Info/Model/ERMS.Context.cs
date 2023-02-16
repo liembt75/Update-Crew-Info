@@ -30,7 +30,6 @@ namespace Update_Crew_Info.Model
     
         public DbSet<HR_GBLuyke> HR_GBLuyke { get; set; }
         public DbSet<HR_Party> HR_Party { get; set; }
-        public DbSet<HR_ThanNhan> HR_ThanNhan { get; set; }
         public DbSet<Sys_Account> Sys_Account { get; set; }
         public DbSet<CR_NoneFlight> CR_NoneFlight { get; set; }
         public DbSet<CR_NoneFlight_Category> CR_NoneFlight_Category { get; set; }
@@ -50,6 +49,7 @@ namespace Update_Crew_Info.Model
         public DbSet<HR_MailOpsLog> HR_MailOpsLog { get; set; }
         public DbSet<HR_GroupMail> HR_GroupMail { get; set; }
         public DbSet<HR_MailinGroup> HR_MailinGroup { get; set; }
+        public DbSet<HR_ThanNhan> HR_ThanNhan { get; set; }
     
         public virtual ObjectResult<USP_HR_UpdateMailGroup_Result> USP_HR_UpdateMailGroup()
         {
