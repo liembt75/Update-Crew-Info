@@ -17,13 +17,16 @@ namespace Update_Crew_Info.Services
 
         public static SchedulerService Instance => _instance ?? (_instance = new SchedulerService());
 
-        public void ScheduleTask(int hour, int min, double intervalInHour, Action task)
+        public void ScheduleTask(int hour, int min, double intervalInHour,bool startIntermediate, Action task)
         {
             DateTime now = DateTime.Now;
             DateTime firstRun = new DateTime(now.Year, now.Month, now.Day, hour, min, 0, 0);
             if (now > firstRun)
             {
-                firstRun = firstRun.AddDays(1); //Có lẽ Adđáy(-1) sẽ chạy ngay.
+                if(!startIntermediate)
+                    firstRun = firstRun.AddDays(1); //Có lẽ Adđáy(-1) sẽ chạy ngay.
+                else
+                    firstRun = firstRun.AddDays(-1);
             }
 
             TimeSpan timeToGo = firstRun - now;

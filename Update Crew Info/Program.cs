@@ -94,103 +94,103 @@ namespace Update_Crew_Info
                     // IntervalInSeconds(start_hour, start_minute, hours)
 
 
-                    Scheduler.IntervalInHours(7, 00, 3,
+                    Scheduler.IntervalInHours(7, 00, 3,true,
                     () =>
                         Update_Sys_Acc()
                     );
 
-                    Scheduler.IntervalInHours(7, 15, 3,
+                    Scheduler.IntervalInHours(7, 15, 3, true,
                     () =>
                         Update_Giobay()
                     );
 
-                    Scheduler.IntervalInHours(7, 30, 3,
+                    Scheduler.IntervalInHours(7, 30, 3, true,
                     () =>
                         Update_SMS_Acc()
                     );
 
-                    Scheduler.IntervalInHours(14, 30, 6,
+                    Scheduler.IntervalInHours(14, 30, 6, true,
                     () =>
                       UpdateSafetyCert()
                     );
 
                    
-                    Scheduler.IntervalInHours(7, 55, 3,
+                    Scheduler.IntervalInHours(7, 55, 3, true,
                    () =>
                        //Update_Learning()
                        UpdateClass()
                    );
 
-                    Scheduler.IntervalInHours(10, 0, 6,
+                    Scheduler.IntervalInHours(10, 0, 6, true,
                     () =>
                      //HDLD2RedAnt
                      Contract2RedAnt()
                     );
 
-                    Scheduler.IntervalInHours(8, 00, 3,
+                    Scheduler.IntervalInHours(8, 00, 3, true,
                     () =>
                         Update_KTKL()
                     );
 
-                    Scheduler.IntervalInHours(8, 15, 3,
+                    Scheduler.IntervalInHours(8, 15, 3, true,
                     () =>
                         Update_Nhanthan()
                     );
 
-                    Scheduler.IntervalInHours(8, 30, 3,
+                    Scheduler.IntervalInHours(8, 30, 3, true,
                     () =>
                         Update_Thannhan()
                     );
 
-                    Scheduler.IntervalInHours(8, 45, 3,
+                    Scheduler.IntervalInHours(8, 45, 3, true,
                     () =>
                         Update_Dang()
                     );
 
 
                     //Chạy trên máy Cá nhân
-                    Scheduler.IntervalInHours(22, 00, 24,
+                    Scheduler.IntervalInHours(22, 00, 24,false,
                     () =>
                         Backup_doc()
                     );
                     //Update Group
-                    Scheduler.IntervalInHours(1, 00, 1,
+                    Scheduler.IntervalInHours(1, 00, 1, true,
                     () =>
                         Update_Group()
                     );
 
                     //update_THHDLD()
-                    Scheduler.IntervalInHours(09, 00, 24,
+                    Scheduler.IntervalInHours(09, 00, 24, true,
                     () => update_THHDLD());
 
 
-                    Scheduler.IntervalInHours(21, 00, 24,
+                    Scheduler.IntervalInHours(21, 00, 24, false,
                     () => update_RouteComm());
 
                     //SyncFPT
-                    Scheduler.IntervalInHours(05, 00, 24,
+                    Scheduler.IntervalInHours(05, 00, 24, false,
                     () => SyncFPT());
 
                     //Update Group mail
-                    Scheduler.IntervalInHours(15, 30, 24,
+                    Scheduler.IntervalInHours(15, 30, 24, false,
                     () =>
                       UpdateMailGroup()
                     );
 
                     //Send Delete Mail
-                    Scheduler.IntervalInHours(16, 45, 24,
+                    Scheduler.IntervalInHours(16, 45, 24, false,
                     () => SendMailRemoveAccount());
 
                     //Send Mail Unlock
-                    Scheduler.IntervalInHours(16, 40, 24,
+                    Scheduler.IntervalInHours(16, 40, 24, false,
                     () => SendMailUnlockAccount());
 
                     //Send Mail Lock
-                    Scheduler.IntervalInHours(16, 50, 24,
+                    Scheduler.IntervalInHours(16, 50, 24, false,
                     () => SendMailLockAccount());
 
                     //Set Active Bộ phận
-                    Scheduler.IntervalInHours(0, 30, 24,
+                    Scheduler.IntervalInHours(0, 30, 24,true,
                     () => SetActiveDep());
 
                     input = Console.ReadKey();
@@ -922,6 +922,7 @@ namespace Update_Crew_Info
                     {
                         rela.Relationship = item.Relationship;
                         rela.FullName = item.FulleName;
+
                         rela.DoB = item.DoB;
                         rela.Note = item.Note;
                         numUpdate++;
